@@ -17,6 +17,12 @@
 		3E789F2924D964E8006EFA22 /* TextImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E789F2724D964E8006EFA22 /* TextImageCell.swift */; };
 		3E789F2A24D964E8006EFA22 /* TextImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E789F2824D964E8006EFA22 /* TextImageCell.xib */; };
 		3E789F3024D98CC2006EFA22 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3E789F2F24D98CC2006EFA22 /* SDWebImage */; };
+		3E789F3324D9A582006EFA22 /* ItemDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E789F3224D9A582006EFA22 /* ItemDetailsProtocol.swift */; };
+		3E789F3724D9AABC006EFA22 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E789F3524D9AABC006EFA22 /* ItemDetailsView.swift */; };
+		3E789F3824D9AABC006EFA22 /* ItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E789F3624D9AABC006EFA22 /* ItemDetailsView.xib */; };
+		3E789F3A24D9AAF3006EFA22 /* ItemDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E789F3924D9AAF3006EFA22 /* ItemDetailsInteractor.swift */; };
+		3E789F3C24D9ABF5006EFA22 /* ItemDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E789F3B24D9ABF5006EFA22 /* ItemDetailsRouter.swift */; };
+		3E789F3E24D9AC6D006EFA22 /* ItemDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E789F3D24D9AC6D006EFA22 /* ItemDetailsPresenter.swift */; };
 		3E7CB86F24D870E50019C71F /* jsonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB86E24D870E50019C71F /* jsonItem.swift */; };
 		3E7CB87124D8715C0019C71F /* jsonItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB87024D8715C0019C71F /* jsonItemDetails.swift */; };
 		3E7CB87324D872BC0019C71F /* tappticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB87224D872BC0019C71F /* tappticService.swift */; };
@@ -60,6 +66,12 @@
 		3E789F2124D95E7D006EFA22 /* ItemsListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsListView.xib; sourceTree = "<group>"; };
 		3E789F2724D964E8006EFA22 /* TextImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImageCell.swift; sourceTree = "<group>"; };
 		3E789F2824D964E8006EFA22 /* TextImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextImageCell.xib; sourceTree = "<group>"; };
+		3E789F3224D9A582006EFA22 /* ItemDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsProtocol.swift; sourceTree = "<group>"; };
+		3E789F3524D9AABC006EFA22 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
+		3E789F3624D9AABC006EFA22 /* ItemDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailsView.xib; sourceTree = "<group>"; };
+		3E789F3924D9AAF3006EFA22 /* ItemDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsInteractor.swift; sourceTree = "<group>"; };
+		3E789F3B24D9ABF5006EFA22 /* ItemDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsRouter.swift; sourceTree = "<group>"; };
+		3E789F3D24D9AC6D006EFA22 /* ItemDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsPresenter.swift; sourceTree = "<group>"; };
 		3E7CB86E24D870E50019C71F /* jsonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonItem.swift; sourceTree = "<group>"; };
 		3E7CB87024D8715C0019C71F /* jsonItemDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonItemDetails.swift; sourceTree = "<group>"; };
 		3E7CB87224D872BC0019C71F /* tappticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tappticService.swift; sourceTree = "<group>"; };
@@ -174,6 +186,27 @@
 			path = VIews;
 			sourceTree = "<group>";
 		};
+		3E789F3124D9A55E006EFA22 /* ItemDetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				3E789F3224D9A582006EFA22 /* ItemDetailsProtocol.swift */,
+				3E789F3924D9AAF3006EFA22 /* ItemDetailsInteractor.swift */,
+				3E789F3B24D9ABF5006EFA22 /* ItemDetailsRouter.swift */,
+				3E789F3D24D9AC6D006EFA22 /* ItemDetailsPresenter.swift */,
+				3E789F3424D9AAA0006EFA22 /* View */,
+			);
+			path = ItemDetailsModule;
+			sourceTree = "<group>";
+		};
+		3E789F3424D9AAA0006EFA22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E789F3524D9AABC006EFA22 /* ItemDetailsView.swift */,
+				3E789F3624D9AABC006EFA22 /* ItemDetailsView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3E7CB86924D8689D0019C71F /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +236,7 @@
 		3E7CB87924D92EA20019C71F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3E789F3124D9A55E006EFA22 /* ItemDetailsModule */,
 				3E7CB87C24D931E80019C71F /* ItemListModule */,
 			);
 			path = Modules;
@@ -333,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E6F26A024D8490000226C8F /* LaunchScreen.storyboard in Resources */,
+				3E789F3824D9AABC006EFA22 /* ItemDetailsView.xib in Resources */,
 				3E789F2A24D964E8006EFA22 /* TextImageCell.xib in Resources */,
 				3E6F269A24D8490000226C8F /* Assets.xcassets in Resources */,
 				3E789F2324D95E7D006EFA22 /* ItemsListView.xib in Resources */,
@@ -360,9 +395,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E789F3A24D9AAF3006EFA22 /* ItemDetailsInteractor.swift in Sources */,
+				3E789F3E24D9AC6D006EFA22 /* ItemDetailsPresenter.swift in Sources */,
+				3E789F3724D9AABC006EFA22 /* ItemDetailsView.swift in Sources */,
 				3E6F269424D848FC00226C8F /* AppDelegate.swift in Sources */,
 				3E789F2224D95E7D006EFA22 /* ItemsListView.swift in Sources */,
 				3E7CB87324D872BC0019C71F /* tappticService.swift in Sources */,
+				3E789F3324D9A582006EFA22 /* ItemDetailsProtocol.swift in Sources */,
+				3E789F3C24D9ABF5006EFA22 /* ItemDetailsRouter.swift in Sources */,
 				3E7CB87124D8715C0019C71F /* jsonItemDetails.swift in Sources */,
 				3EC4B16C24D94CA4008ABEFD /* ItemsListPresenter.swift in Sources */,
 				3E7CB86F24D870E50019C71F /* jsonItem.swift in Sources */,

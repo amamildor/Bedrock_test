@@ -19,4 +19,10 @@ class ItemsListRouter: PresenterToRouterItemsListProtocol {
         viewController.itemsPresenter?.interactor = ItemsListInteractor()
         viewController.itemsPresenter?.interactor?.presenter = presenter
     }
+
+    func pushToItemDetails(with item: JsonItem, from viewController: UIViewController) {
+        let detailsViewController = ItemDetailsViewController.init(nibName: "ItemDetailsView", bundle: nil)
+        ItemDetailsRouter.createItemDetailsModule(viewController: detailsViewController)
+        viewController.navigationController?.pushViewController(detailsViewController, animated: true)
+    }
 }

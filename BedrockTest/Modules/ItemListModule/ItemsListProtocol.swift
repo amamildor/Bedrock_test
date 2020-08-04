@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ViewToPresenterItemsListProtocol: class {
     var view: PresenterToViewItemsListProtocol? {get set}
@@ -14,6 +15,7 @@ protocol ViewToPresenterItemsListProtocol: class {
     var router: PresenterToRouterItemsListProtocol? {get set}
 
     func fetchItems()
+    func showItemSelection(with item: JsonItem, from view: UIViewController)
 }
 
 protocol PresenterToViewItemsListProtocol: class {
@@ -23,6 +25,7 @@ protocol PresenterToViewItemsListProtocol: class {
 
 protocol PresenterToRouterItemsListProtocol: class {
     static func createItemsListModule(viewController: ItemsListViewController)
+    func pushToItemDetails(with item: JsonItem, from viewController: UIViewController) 
 }
 
 protocol PresenterToInteractorItemsListProtocol: class {

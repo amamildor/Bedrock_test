@@ -23,8 +23,8 @@
                                     <constraint firstAttribute="width" constant="256" id="UVR-5f-xyc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Nicolas Favre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbI-tO-P8T">
-                                <rect key="frame" x="258.5" y="835" width="145.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2020 Nicolas FAVRE. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbI-tO-P8T">
+                                <rect key="frame" x="15" y="835" width="384" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,8 +32,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SbI-tO-P8T" secondAttribute="trailing" id="4Oi-xW-qLV"/>
-                            <constraint firstItem="SbI-tO-P8T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="258.5" id="6g4-Ff-yWP"/>
+                            <constraint firstItem="SbI-tO-P8T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="6g4-Ff-yWP"/>
+                            <constraint firstItem="SbI-tO-P8T" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CUS-cF-uHb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SbI-tO-P8T" secondAttribute="bottom" constant="10" id="VHP-1O-t0c"/>
                             <constraint firstItem="wJe-be-Ldd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bzi-YE-0Nm"/>
                             <constraint firstItem="wJe-be-Ldd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xEK-cf-bYc"/>

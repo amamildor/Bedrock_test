@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ItemsListPresenter: ViewToPresenterItemsListProtocol {
     var view: PresenterToViewItemsListProtocol?
@@ -15,6 +16,10 @@ class ItemsListPresenter: ViewToPresenterItemsListProtocol {
 
     func fetchItems() {
         interactor?.loadItems()
+    }
+
+    func showItemSelection(with item: JsonItem, from view: UIViewController) {
+        router?.pushToItemDetails(with: item, from: view)
     }
 }
 

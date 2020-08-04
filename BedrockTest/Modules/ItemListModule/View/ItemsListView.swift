@@ -19,6 +19,7 @@ class ItemsListViewController: UIViewController {
 
         tableView.register(UINib(nibName: "TextImageCell", bundle: nil), forCellReuseIdentifier: "textImageCell")
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         tableView.tableFooterView = UIView()
@@ -58,5 +59,11 @@ extension ItemsListViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return (itemsList.count > 0) ? 1 : 0
+    }
+}
+
+extension ItemsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        itemsPresenter?.showItemSelection(with: itemsList[indexPath.row], from: self)
     }
 }
