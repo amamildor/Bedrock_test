@@ -7,34 +7,37 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ItemDetailsViewController: UIViewController {
-    var jsonItem : JsonItem? = nil
+    var jsonItemName : String
     var itemDetailsPresenter: ViewToPresenterItemDetailsProtocol?
+
+    @IBOutlet weak var itemTextLabel: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
+
+    init(item: JsonItem, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.jsonItemName = item.name
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        itemDetailsPresenter?.fetchItemDetails(itemName: jsonItemName)
+
+        self.title = String(format: "detailsListView.title".localized, jsonItemName)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ItemDetailsViewController: PresenterToViewItemDetailsProtocol {
-    func onItemDetailsResponseSuccess(itemDetails: JsonItem) {
-        self.jsonItem = itemDetails
-        //configure view
+    func onItemDetailsResponseSuccess(itemDetails: JsonItemDetails) {
+        itemTextLabel.text = itemDetails.text
+        itemImage.sd_setImage(with: URL(string: itemDetails.imageURL), placeholderImage: UIImage(named: "photo.png"))
     }
 
     func onItemDetailsResponseError(error: String) {

@@ -19,7 +19,7 @@ class ItemDetailsPresenter: ViewToPresenterItemDetailsProtocol {
 }
 
 extension ItemDetailsPresenter: InteractorToPresenterItemDetailsProtocol {
-    func itemDetailsSuccess(itemDetails: JsonItem) {
+    func itemDetailsSuccess(itemDetails: JsonItemDetails) {
         view?.onItemDetailsResponseSuccess(itemDetails: itemDetails)
     }
 

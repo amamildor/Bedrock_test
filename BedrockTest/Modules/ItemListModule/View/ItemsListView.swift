@@ -29,6 +29,7 @@ class ItemsListViewController: UIViewController {
         print("Start Fetching...")
         itemsPresenter?.fetchItems()
 
+        self.title = "listView.title".localized
     }
 }
 

@@ -17,7 +17,7 @@ protocol ViewToPresenterItemDetailsProtocol: class {
 }
 
 protocol PresenterToViewItemDetailsProtocol: class {
-    func onItemDetailsResponseSuccess(itemDetails: JsonItem)
+    func onItemDetailsResponseSuccess(itemDetails: JsonItemDetails)
     func onItemDetailsResponseError(error: String)
 }
 
@@ -31,6 +31,6 @@ protocol PresenterToInteractorItemDetailsProtocol: class {
 }
 
 protocol InteractorToPresenterItemDetailsProtocol: class {
-    func itemDetailsSuccess(itemDetails: JsonItem)
+    func itemDetailsSuccess(itemDetails: JsonItemDetails)
     func itemDetailsFailed()
 }

@@ -23,9 +23,9 @@ class TappticService {
         }
     }
 
-    static func getJsonItemDetails(with name: String, completionHandler: @escaping (JsonItem?, Error?) -> Void) {
+    static func getJsonItemDetails(with name: String, completionHandler: @escaping (JsonItemDetails?, Error?) -> Void) {
         let url = URL(string: "http://dev.tapptic.com/test/json.php?name=\(name)")!
-        AF.request(url).validate().responseDecodable(of: JsonItem.self) { (response) in
+        AF.request(url).validate().responseDecodable(of: JsonItemDetails.self) { (response) in
             guard let itemDetails = response.value else {
                 completionHandler(nil, .none)
                 return
