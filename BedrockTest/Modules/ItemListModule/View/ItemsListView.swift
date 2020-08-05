@@ -14,6 +14,7 @@ class ItemsListViewController: UIViewController {
     var itemsPresenter: ViewToPresenterItemsListProtocol?
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
