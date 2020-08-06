@@ -16,7 +16,6 @@ class NetworkManager {
 
     let networkReachabilityManager = NetworkReachabilityManager(host: "www.google.com")
     public var isNetworkReachable = BehaviorRelay<Bool>(value: true)
-    //let activeViewController: UIViewController?
 
     func startReachabilityObserver() {
         self.networkReachabilityManager?.startListening(onUpdatePerforming: { networkStatusListener in
@@ -25,11 +24,9 @@ class NetworkManager {
 
             switch networkStatusListener {
             case .notReachable:
-                //self.presentAlert(message: "The network is not reachable. Please reconnect to continue using the app.")
                 self.isNetworkReachable.accept(false)
                 print("The network is not reachable.")
             case .unknown :
-                //self.presentAlert(message: "It is unknown whether the network is reachable. Please reconnect.")
                 self.isNetworkReachable.accept(false)
                 print("It is unknown whether the network is reachable.")
             case .reachable(.ethernetOrWiFi):

@@ -36,6 +36,7 @@ extension UIColor {
 
 protocol AdaptiveColors {
     var text: UIColor { get }
+    var icon: UIColor { get }
     var cellBackground: UIColor { get }
     var cellHighlightBackground: UIColor { get }
     var cellSelectBackground: UIColor { get }
@@ -44,11 +45,12 @@ protocol AdaptiveColors {
 }
 
 extension AdaptiveColors {
-    var viewBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xFFFFFF), darkColor: UIColor(hex: 0x000000)) }
     var text: UIColor { UIColor(lightColor: UIColor(hex: 0x1b1b2f), darkColor: UIColor(hex: 0xececec)) }
+    var icon: UIColor { UIColor(lightColor: UIColor(hex: 0x11BAD5), darkColor: UIColor(hex: 0x11BAD5)) }
     var cellBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xFFFFFF), darkColor: UIColor(hex: 0x000000)) }
     var cellHighlightBackground: UIColor { UIColor(lightColor: UIColor(hex: 0x21e6c1), darkColor: UIColor(hex: 0x219897)) }
     var cellSelectBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xff0000), darkColor: UIColor(hex: 0xaf0404)) }
+    var viewBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xFFFFFF), darkColor: UIColor(hex: 0x000000)) }
     var offlineBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xFFFFFF), darkColor: UIColor(hex: 0x000000)) }
 }
 

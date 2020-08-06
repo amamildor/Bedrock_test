@@ -36,6 +36,8 @@ class ItemDetailsViewController: UIViewController, Theming {
         super.viewDidLoad()
 
         view.backgroundColor = theme.colors.viewBackground
+        itemTextLabel.textColor = theme.colors.text
+        self.title = String(format: "detailsListView.title".localized, jsonItemName)
 
         NetworkManager.shared.isNetworkReachable
         .asDriver()
@@ -44,20 +46,23 @@ class ItemDetailsViewController: UIViewController, Theming {
 
             if isReachable {
                 self.itemDetailsPresenter?.fetchItemDetails(itemName: self.jsonItemName)
-            } else {
-                self.showNetworkAlert()
             }
+            self.setupOffline(networkReachable: isReachable)
 
         }).disposed(by: disposeBag)
+    }
 
-        self.title = String(format: "detailsListView.title".localized, jsonItemName)
+    private func setupOffline(networkReachable: Bool) {
+        itemTextLabel.text = networkReachable ? "detailsListView.itemName.default".localized : "network.alert.content".localized
+        itemImage.image = networkReachable ? #imageLiteral(resourceName: "photo.png") : #imageLiteral(resourceName: "wifi.png")
+        itemImage.tintColor = theme.colors.icon
     }
 }
 
 extension ItemDetailsViewController: PresenterToViewItemDetailsProtocol {
     func onItemDetailsResponseSuccess(itemDetails: JsonItemDetails) {
         itemTextLabel.text = itemDetails.text
-        itemImage.sd_setImage(with: URL(string: itemDetails.imageURL), placeholderImage: UIImage(named: "photo.png"))
+        itemImage.sd_setImage(with: URL(string: itemDetails.imageURL), placeholderImage: #imageLiteral(resourceName: "photo.png"))
     }
 
     func onItemDetailsResponseError(error: String) {

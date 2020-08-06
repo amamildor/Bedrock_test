@@ -16,12 +16,18 @@ class ItemsListViewController: UIViewController, Theming {
     private let disposeBag = DisposeBag()
     private let refreshControl = UIRefreshControl()
 
+    @IBOutlet weak var offlineLabel: UILabel!
+    @IBOutlet weak var offlineView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var offlineIcon: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = theme.colors.viewBackground
+        offlineLabel.textColor = theme.colors.text
+        offlineLabel.text = "network.alert.content".localized
+        offlineIcon.tintColor = theme.colors.icon
         setupTableView()
 
         print("Starting...")
@@ -32,15 +38,19 @@ class ItemsListViewController: UIViewController, Theming {
         .drive(onNext: { [weak self] isReachable in
             guard let self = self else { return }
 
+            self.setupOffline(networkReachable: isReachable)
             if isReachable {
                 self.itemsPresenter?.fetchItems()
-            } else {
-                self.showNetworkAlert()
             }
 
         }).disposed(by: disposeBag)
 
-        self.title = "listView.title".localized
+        title = "listView.title".localized
+    }
+
+    private func setupOffline(networkReachable: Bool) {
+        offlineView.isHidden = networkReachable
+        tableView.isHidden = !networkReachable
     }
 
     private func setupTableView() {
@@ -60,7 +70,7 @@ class ItemsListViewController: UIViewController, Theming {
 
     @objc private func loadData() {
         guard NetworkManager.shared.isNetworkReachable.value == true else {
-            showNetworkAlert()
+            setupOffline(networkReachable: false)
             return
         }
 
@@ -72,7 +82,8 @@ class ItemsListViewController: UIViewController, Theming {
 extension ItemsListViewController: PresenterToViewItemsListProtocol {
     func onItemsListResponseSuccess(itemsList: Array<JsonItem>) {
         self.itemsList = itemsList
-        self.tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
+        tableView.reloadData()
     }
 
     func onItemsListResponseError(error: String) {
@@ -86,7 +97,7 @@ extension ItemsListViewController: UITableViewDataSource {
 
         let jsonItem = itemsList[indexPath.row]
         cell.itemNameLabel.text = jsonItem.name
-        cell.itemImage.sd_setImage(with: URL(string: jsonItem.imageURL), placeholderImage: UIImage(named: "photo.png"))
+        cell.itemImage.sd_setImage(with: URL(string: jsonItem.imageURL), placeholderImage: #imageLiteral(resourceName: "photo.png"))
         return cell
     }
 

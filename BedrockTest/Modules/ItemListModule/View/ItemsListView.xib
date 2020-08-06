@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemsListView" customModule="BedrockTest" customModuleProvider="target">
             <connections>
+                <outlet property="offlineIcon" destination="VUH-UW-B0M" id="jRG-sU-Efh"/>
+                <outlet property="offlineLabel" destination="vdR-zd-kj6" id="5YB-uB-V9i"/>
+                <outlet property="offlineView" destination="h8z-Db-PTG" id="6gs-4x-CeW"/>
                 <outlet property="tableView" destination="eOD-bT-Xuj" id="D7U-pt-AGR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,20 +22,55 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eOD-bT-Xuj">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZHa-Vn-kLk">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8z-Db-PTG">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi" translatesAutoresizingMaskIntoConstraints="NO" id="VUH-UW-B0M">
+                                    <rect key="frame" x="10" y="15" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="VCO-AX-ef0"/>
+                                        <constraint firstAttribute="height" constant="30" id="ZCi-hf-HHi"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="vdR-zd-kj6">
+                                    <rect key="frame" x="50" y="21" width="354" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="VUH-UW-B0M" firstAttribute="leading" secondItem="h8z-Db-PTG" secondAttribute="leading" constant="10" id="5fl-jJ-JYx"/>
+                                <constraint firstAttribute="height" constant="60" id="FM6-Pb-3O2"/>
+                                <constraint firstItem="vdR-zd-kj6" firstAttribute="centerY" secondItem="h8z-Db-PTG" secondAttribute="centerY" id="HyJ-qI-uXg"/>
+                                <constraint firstAttribute="trailing" secondItem="vdR-zd-kj6" secondAttribute="trailing" constant="10" id="Zkp-3K-BgM"/>
+                                <constraint firstItem="VUH-UW-B0M" firstAttribute="centerY" secondItem="h8z-Db-PTG" secondAttribute="centerY" id="ldp-Au-91j"/>
+                                <constraint firstItem="vdR-zd-kj6" firstAttribute="leading" secondItem="VUH-UW-B0M" secondAttribute="trailing" constant="10" id="oAb-Di-tdR"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eOD-bT-Xuj">
+                            <rect key="frame" x="0.0" y="60" width="414" height="758"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="0.94860059019999998" green="0.96089130639999998" blue="0.96080726390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="eOD-bT-Xuj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7EQ-JM-764"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eOD-bT-Xuj" secondAttribute="trailing" id="ERm-vA-aZJ"/>
-                <constraint firstItem="eOD-bT-Xuj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Nt9-6S-sQ3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eOD-bT-Xuj" secondAttribute="bottom" id="ThO-yl-0Ez"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZHa-Vn-kLk" secondAttribute="trailing" id="BB7-Cg-bb9"/>
+                <constraint firstItem="ZHa-Vn-kLk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="F2t-Yn-Jwk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZHa-Vn-kLk" secondAttribute="bottom" id="ObR-if-85B"/>
+                <constraint firstItem="ZHa-Vn-kLk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="l4q-hj-c04"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="127"/>
         </view>
     </objects>
+    <resources>
+        <image name="wifi" width="256" height="256"/>
+    </resources>
 </document>

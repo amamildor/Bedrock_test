@@ -27,8 +27,8 @@
                         <constraint firstAttribute="width" secondItem="hRn-q0-6PF" secondAttribute="height" multiplier="1:1" id="U2j-TA-Krj"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utu-Xp-gzV">
-                    <rect key="frame" x="186" y="556" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utu-Xp-gzV">
+                    <rect key="frame" x="186" y="556" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -40,6 +40,7 @@
                 <constraint firstItem="utu-Xp-gzV" firstAttribute="centerX" secondItem="hRn-q0-6PF" secondAttribute="centerX" id="LAX-iI-Tpv"/>
                 <constraint firstItem="utu-Xp-gzV" firstAttribute="top" secondItem="hRn-q0-6PF" secondAttribute="bottom" constant="8" id="RKv-3h-h1x"/>
                 <constraint firstItem="hRn-q0-6PF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="XGp-fY-JSw"/>
+                <constraint firstItem="utu-Xp-gzV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="nm4-bD-nfd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="113"/>

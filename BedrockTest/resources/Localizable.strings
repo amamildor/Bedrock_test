@@ -22,5 +22,6 @@ MARK: List view
 /**
 MARK: details view
 */
-"detailsListView.title" = "Item %@ details";
+"detailsListView.title"            = "Item %@ details";
+"detailsListView.itemName.default" = "Please select an item in list";
 
