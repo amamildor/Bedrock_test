@@ -8,6 +8,7 @@
 
 import UIKit
 
+///UIColor extension to manage adaptive colors in Dark Mode
 extension UIColor {
     convenience init(lightColor: UIColor, darkColor: UIColor) {
         guard #available(iOS 13, *) else {
@@ -41,7 +42,6 @@ protocol AdaptiveColors {
     var cellHighlightBackground: UIColor { get }
     var cellSelectBackground: UIColor { get }
     var viewBackground: UIColor { get }
-    var offlineBackground: UIColor { get }
 }
 
 extension AdaptiveColors {
@@ -51,7 +51,6 @@ extension AdaptiveColors {
     var cellHighlightBackground: UIColor { UIColor(lightColor: UIColor(hex: 0x21e6c1), darkColor: UIColor(hex: 0x219897)) }
     var cellSelectBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xff0000), darkColor: UIColor(hex: 0xaf0404)) }
     var viewBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xFFFFFF), darkColor: UIColor(hex: 0x000000)) }
-    var offlineBackground: UIColor { UIColor(lightColor: UIColor(hex: 0xFFFFFF), darkColor: UIColor(hex: 0x000000)) }
 }
 
 struct DefaultColors: AdaptiveColors {

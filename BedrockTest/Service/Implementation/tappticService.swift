@@ -10,6 +10,12 @@ import Foundation
 import Alamofire
 
 class TappticService {
+
+    /**
+    retrieve json items list
+
+    - returns: completionHandler with optional JsonItems and optional error
+    */
     static func getJsonItems(completionHandler: @escaping (JsonItems?, Error?) -> Void) {
         let url = URL(string: "https://dev.tapptic.com/test/json.php")!
         AF.request(url).validate().responseDecodable(of: JsonItems.self) { (response) in
@@ -23,6 +29,11 @@ class TappticService {
         }
     }
 
+    /**
+    retrieve json item details from item name
+
+    - returns: completionHandler with optional JsonItemDetails and optional error
+    */
     static func getJsonItemDetails(with name: String, completionHandler: @escaping (JsonItemDetails?, Error?) -> Void) {
         let url = URL(string: "http://dev.tapptic.com/test/json.php?name=\(name)")!
         AF.request(url).validate().responseDecodable(of: JsonItemDetails.self) { (response) in

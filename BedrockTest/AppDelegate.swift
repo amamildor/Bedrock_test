@@ -15,9 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let splitViewController = UISplitViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        ///start reachability listener
         NetworkManager.shared.startReachabilityObserver()
 
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
 
         let viewController = ItemsListViewController(nibName: "ItemsListView", bundle: nil)
         let detailViewController = ItemDetailsViewController(nibName: "ItemDetailsView", bundle: nil)
@@ -31,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.topViewController?.navigationItem.leftItemsSupplementBackButton = true
         splitViewController.delegate = self
 
-        self.window?.rootViewController = splitViewController
+        window?.rootViewController = splitViewController
 
-        self.window?.makeKeyAndVisible()
+        window?.makeKeyAndVisible()
 
         return true
     }

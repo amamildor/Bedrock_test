@@ -8,6 +8,7 @@
 
 import Foundation
 
+///Protocol used to access theme colors
 protocol Theming {
     var theme: Theme { get }
 }
@@ -20,6 +21,7 @@ extension Theming {
 
 import UIKit
 
+///UIView conforms automatically to Theming protocols
 extension UIView: Theming { }
 
 class Theme {

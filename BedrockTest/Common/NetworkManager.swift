@@ -11,6 +11,7 @@ import Alamofire
 import RxSwift
 import RxCocoa
 
+///Manage reachability status
 class NetworkManager {
     static let shared = NetworkManager()
 
@@ -18,7 +19,7 @@ class NetworkManager {
     public var isNetworkReachable = BehaviorRelay<Bool>(value: true)
 
     func startReachabilityObserver() {
-        self.networkReachabilityManager?.startListening(onUpdatePerforming: { networkStatusListener in
+        networkReachabilityManager?.startListening(onUpdatePerforming: { networkStatusListener in
 
             print("Network Status Changed:", networkStatusListener)
 

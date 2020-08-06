@@ -8,7 +8,9 @@
 
 import Foundation
 
+///Extension to manage localizable strings
 public extension String {
+    ///return localized string
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }

@@ -19,12 +19,12 @@ class ItemDetailsViewController: UIViewController, Theming {
     @IBOutlet weak var itemImage: UIImageView!
 
     init(item: JsonItem, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.jsonItemName = item.name
+        jsonItemName = item.name
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.jsonItemName = ""
+        jsonItemName = ""
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -37,7 +37,7 @@ class ItemDetailsViewController: UIViewController, Theming {
 
         view.backgroundColor = theme.colors.viewBackground
         itemTextLabel.textColor = theme.colors.text
-        self.title = String(format: "detailsListView.title".localized, jsonItemName)
+        title = String(format: "detailsListView.title".localized, jsonItemName)
 
         NetworkManager.shared.isNetworkReachable
         .asDriver()

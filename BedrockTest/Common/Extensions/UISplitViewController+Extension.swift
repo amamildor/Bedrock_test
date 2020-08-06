@@ -9,8 +9,9 @@
 import UIKit
 
 extension UISplitViewController {
+    ///used to collapse master view automatically when iPad in portrait
     func toggleMasterView() {
-        let barButtonItem = self.displayModeButtonItem
+        let barButtonItem = displayModeButtonItem
         UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
     }
 }
