@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import RxSwift
 
-class ItemDetailsViewController: UIViewController {
+class ItemDetailsViewController: UIViewController, Theming {
     var jsonItemName : String
     var itemDetailsPresenter: ViewToPresenterItemDetailsProtocol?
     let disposeBag = DisposeBag()
@@ -34,6 +34,8 @@ class ItemDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = theme.colors.viewBackground
 
         NetworkManager.shared.isNetworkReachable
         .asDriver()

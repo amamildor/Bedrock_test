@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import RxSwift
 
-class ItemsListViewController: UIViewController {
+class ItemsListViewController: UIViewController, Theming {
     var itemsList : JsonItems = []
     var itemsPresenter: ViewToPresenterItemsListProtocol?
     let disposeBag = DisposeBag()
@@ -20,6 +20,7 @@ class ItemsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = theme.colors.viewBackground
         setupTableView()
 
         print("Starting...")
