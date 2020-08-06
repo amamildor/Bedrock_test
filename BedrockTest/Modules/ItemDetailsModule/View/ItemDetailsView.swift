@@ -11,9 +11,9 @@ import SDWebImage
 import RxSwift
 
 class ItemDetailsViewController: UIViewController, Theming {
-    var jsonItemName : String
+    private var jsonItemName : String
     var itemDetailsPresenter: ViewToPresenterItemDetailsProtocol?
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
 
     @IBOutlet weak var itemTextLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
@@ -45,10 +45,7 @@ class ItemDetailsViewController: UIViewController, Theming {
             if isReachable {
                 self.itemDetailsPresenter?.fetchItemDetails(itemName: self.jsonItemName)
             } else {
-                let alert = UIAlertController(title: "network.alert.title".localized, message: "network.alert.content".localized, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "alert.button.ok".localized, style: .default, handler: nil))
-
-                self.present(alert, animated: true)
+                self.showNetworkAlert()
             }
 
         }).disposed(by: disposeBag)

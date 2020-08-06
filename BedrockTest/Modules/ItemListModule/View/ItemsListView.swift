@@ -11,9 +11,10 @@ import SDWebImage
 import RxSwift
 
 class ItemsListViewController: UIViewController, Theming {
-    var itemsList : JsonItems = []
+    private var itemsList : JsonItems = []
     var itemsPresenter: ViewToPresenterItemsListProtocol?
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,10 +35,7 @@ class ItemsListViewController: UIViewController, Theming {
             if isReachable {
                 self.itemsPresenter?.fetchItems()
             } else {
-                let alert = UIAlertController(title: "network.alert.title".localized, message: "network.alert.content".localized, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "alert.button.ok".localized, style: .default, handler: nil))
-
-                self.present(alert, animated: true)
+                self.showNetworkAlert()
             }
 
         }).disposed(by: disposeBag)
@@ -47,11 +45,27 @@ class ItemsListViewController: UIViewController, Theming {
 
     private func setupTableView() {
         tableView.register(UINib(nibName: "TextImageCell", bundle: nil), forCellReuseIdentifier: "textImageCell")
+
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "listView.refreshControl.title".localized)
+
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         tableView.tableFooterView = UIView()
+
+    }
+
+    @objc private func loadData() {
+        guard NetworkManager.shared.isNetworkReachable.value == true else {
+            showNetworkAlert()
+            return
+        }
+
+        itemsPresenter?.fetchItems()
+        refreshControl.endRefreshing()
     }
 }
 

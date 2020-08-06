@@ -6,9 +6,21 @@
   Copyright © 2020 Nicolas FAVRE. All rights reserved.
 */
 
-"listView.title"        = "Items list";
-"detailsListView.title" = "Item %@ details";
-
+/**
+MARK: Common
+*/
 "network.alert.title"   = "Network Error";
 "network.alert.content" = "Network is unreachable at the moment, data will be refreshed when it came back.";
 "alert.button.ok"       = "Ok";
+
+/**
+MARK: List view
+*/
+"listView.title"                = "Items list";
+"listView.refreshControl.title" = "Fetching items list ...";
+
+/**
+MARK: details view
+*/
+"detailsListView.title" = "Item %@ details";
+
