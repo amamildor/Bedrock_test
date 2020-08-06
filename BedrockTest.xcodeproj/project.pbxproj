@@ -149,8 +149,7 @@
 			children = (
 				3E789F2524D964BB006EFA22 /* Common */,
 				3E6F269324D848FC00226C8F /* AppDelegate.swift */,
-				3E789F3F24DA8E3D006EFA22 /* resources */,
-				3E6F26A124D8490000226C8F /* Info.plist */,
+				3E789F3F24DA8E3D006EFA22 /* Resources */,
 				3E7CB86924D8689D0019C71F /* Service */,
 				3E7CB87924D92EA20019C71F /* Modules */,
 			);
@@ -188,20 +187,20 @@
 			isa = PBXGroup;
 			children = (
 				3E789F4224DA8ED9006EFA22 /* Extensions */,
-				3E789F2624D964C4006EFA22 /* VIews */,
+				3E789F2624D964C4006EFA22 /* Views */,
 				3E4EF46124DAFC2800851549 /* NetworkManager.swift */,
 				3E4EF46E24DBF08300851549 /* Theme.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		3E789F2624D964C4006EFA22 /* VIews */ = {
+		3E789F2624D964C4006EFA22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3E789F2724D964E8006EFA22 /* TextImageCell.swift */,
 				3E789F2824D964E8006EFA22 /* TextImageCell.xib */,
 			);
-			path = VIews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3E789F3124D9A55E006EFA22 /* ItemDetailsModule */ = {
@@ -225,14 +224,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3E789F3F24DA8E3D006EFA22 /* resources */ = {
+		3E789F3F24DA8E3D006EFA22 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				3E6F269924D8490000226C8F /* Assets.xcassets */,
 				3E6F269E24D8490000226C8F /* LaunchScreen.storyboard */,
 				3E789F4024DA8E64006EFA22 /* Localizable.strings */,
+				3E6F26A124D8490000226C8F /* Info.plist */,
 			);
-			path = resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		3E789F4224DA8ED9006EFA22 /* Extensions */ = {
