@@ -24,6 +24,9 @@ class ItemsListRouter: PresenterToRouterItemsListProtocol {
         let detailsViewController = ItemDetailsViewController.init(item: item, nibName: "ItemDetailsView", bundle: nil)
         let detailNavigationController = UINavigationController(rootViewController: detailsViewController)
         ItemDetailsRouter.createItemDetailsModule(viewController: detailsViewController)
-        viewController.show(detailNavigationController, sender: self)// navigationController?.pushViewController(detailsViewController, animated: true)
+        detailsViewController.navigationItem.leftBarButtonItem = viewController.splitViewController?.displayModeButtonItem
+        detailsViewController.navigationItem.leftItemsSupplementBackButton = true
+        viewController.splitViewController?.toggleMasterView()
+        viewController.showDetailViewController(detailNavigationController, sender: self)
     }
 }

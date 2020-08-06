@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let splitViewController = UISplitViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        NetworkManager.shared.startReachabilityObserver()
 
-        splitViewController.preferredDisplayMode = .allVisible
+        self.window = UIWindow(frame: UIScreen.main.bounds)
 
         let viewController = ItemsListViewController(nibName: "ItemsListView", bundle: nil)
         let detailViewController = ItemDetailsViewController(nibName: "ItemDetailsView", bundle: nil)
@@ -25,7 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationController(rootViewController: viewController),
             UINavigationController(rootViewController: detailViewController)
         ]
+
+        guard let navigationController = splitViewController.viewControllers.last as? UINavigationController else { return false }
+        navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        navigationController.topViewController?.navigationItem.leftItemsSupplementBackButton = true
         splitViewController.delegate = self
+
         self.window?.rootViewController = splitViewController
 
         self.window?.makeKeyAndVisible()
@@ -36,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+        guard (secondaryAsNavController.topViewController as? ItemDetailsViewController) != nil else { return false }
+
         return true
     }
+
 }

@@ -8,29 +8,49 @@
 
 import UIKit
 import SDWebImage
+import RxSwift
 
 class ItemsListViewController: UIViewController {
     var itemsList : JsonItems = []
     var itemsPresenter: ViewToPresenterItemsListProtocol?
+    let disposeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableView()
+
+        print("Starting...")
+        ItemsListRouter.createItemsListModule(viewController: self)
+        print("Start Fetching...")
+        NetworkManager.shared.isNetworkReachable
+        .asDriver()
+        .drive(onNext: { [weak self] isReachable in
+            guard let self = self else { return }
+
+            if isReachable {
+                self.itemsPresenter?.fetchItems()
+            } else {
+                let alert = UIAlertController(title: "network.alert.title".localized, message: "network.alert.content".localized, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "alert.button.ok".localized, style: .default, handler: nil))
+
+                self.present(alert, animated: true)
+            }
+
+        }).disposed(by: disposeBag)
+
+        self.title = "listView.title".localized
+    }
+
+    private func setupTableView() {
         tableView.register(UINib(nibName: "TextImageCell", bundle: nil), forCellReuseIdentifier: "textImageCell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         tableView.tableFooterView = UIView()
-
-        print("Starting...")
-        ItemsListRouter.createItemsListModule(viewController: self)
-        print("Start Fetching...")
-        itemsPresenter?.fetchItems()
-
-        self.title = "listView.title".localized
     }
 }
 

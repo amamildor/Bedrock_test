@@ -8,3 +8,7 @@
 
 "listView.title"        = "Items list";
 "detailsListView.title" = "Item %@ details";
+
+"network.alert.title"   = "Network Error";
+"network.alert.content" = "Network is unreachable at the moment, data will be refreshed when it came back.";
+"alert.button.ok"       = "Ok";
